@@ -11,9 +11,17 @@
 
     <div class="add-container body-item">  
         <form action="idkyet.com/path" method="post">
-            <label for="amount">Amount:</label>
-            <input type="number" id="amount">
-
+            <div class="amount-date-container">
+                <div class="amount-container">
+                    <label for="amount" class="inline-label">Amount:</label>
+                    <input type="number" id="amount">
+                </div>
+                <div class="date-container">
+                    <label for="date" class="inline-label">Date:</label>
+                    <input type="date" id="date">
+                </div>
+            </div>
+            
             <label for="location">Location:</label>
             <input type="text" id="location:">
             <input type="submit" value="Add To Log">
