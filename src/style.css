@@ -16,7 +16,7 @@ html{
 body{
     display: grid;
     gap: 20px;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 270px);
     grid-template-columns: repeat(2, 1fr);
     width: min(1000px, 100%);
     font-family: 'Source Sans Pro', sans-serif;

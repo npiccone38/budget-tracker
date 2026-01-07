@@ -13,8 +13,7 @@ atl.addEventListener("submit", (e) => {
 
     const entry = document.createElement("div");
     entry.classList.add("entry-container");
-    entry.textContent = "Amount: " + fd.get(amount) + " Date: " + fd.date + " Location: " + fd.location;
+    entry.textContent = "Amount: " + fd.get("amount") + " Date: " + fd.get("date") + " Location: " + fd.get("location");
     hist_container.prepend(entry);
-
 });
 
