@@ -1,9 +1,9 @@
 :root{
     --bg: white;
     --text-color: #708090;
-    --primary-color: #4979B6;
-    --secondary-color: #B64979;
-    --tertiary-color: #79B649;
+    --primary-color: #045938;
+    --primary-pale: #04593831;
+    --secondary-color: #0b744c;
 
 }
 
@@ -19,7 +19,12 @@ body{
     grid-template-rows: repeat(4, 270px);
     grid-template-columns: repeat(2, 1fr);
     width: min(1000px, 100%);
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+}
+
+label{
+    color: var(--secondary-color);
+    weight: 500;
 }
 
 input{
@@ -28,11 +33,11 @@ input{
     padding: 10px;
     margin: 10px 0;
     box-sizing: border-box;
+    /* background-color: var(--primary-pale); */
 }
 
 input[type=text]{
     width: 100%;
-    
 }
 
 input[type=number]{
@@ -40,7 +45,11 @@ input[type=number]{
 }
 
 input[type=submit]{
-    
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
 }
 
 .body-item{
@@ -62,6 +71,32 @@ input[type=submit]{
     align-items: center;
 }
 
+.balance-text{
+    color: var(--primary-color);
+    font-size: 60px;
+    font-weight: 900;
+}
+
+.balance-subtext{
+    color: var(--secondary-color);
+    font-size: 20px;
+    font-weight: 450;
+}
+
+.monthly-balance-text{
+    color: var(--primary-color);
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.income-btn{
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
 .graph-container{
     grid-column: 1/3;
 }
@@ -77,6 +112,5 @@ input[type=submit]{
     width: 100%;
     border-radius: 5px;
 }
-
 
 

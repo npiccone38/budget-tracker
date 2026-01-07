@@ -1,9 +1,11 @@
 import "./style.css";
 
-// payment object factory
-function createPayment(amount, date, location){
-    return {amount, date, location};
-}
+// payment object factory - maybe not needed
+// function createPayment(amount, date, location){
+//     return {amount, date, location};
+//}
+
+
 
 const atl = document.querySelector("#atl");
 atl.addEventListener("submit", (e) => {
@@ -15,5 +17,7 @@ atl.addEventListener("submit", (e) => {
     entry.classList.add("entry-container");
     entry.textContent = "Amount: " + fd.get("amount") + " Date: " + fd.get("date") + " Location: " + fd.get("location");
     hist_container.prepend(entry);
+
+    document.getElementById("atl").reset();
 });
 
