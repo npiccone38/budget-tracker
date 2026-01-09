@@ -1,9 +1,19 @@
 import "./style.css";
 
+let balance = 100;
+const balance_text = document.querySelector(".balance-text");
+balance_text.textContent = "$" + balance;
+
+/*
+* Submits the info in the add to log form and creates
+* a new entry in the log when the button is pressed
+*/
 const atl = document.querySelector("#atl");
 atl.addEventListener("submit", (e) => {
     e.preventDefault();
     const fd = new FormData(atl);
+
+    //Creates the log entry
     const history_container = document.querySelector(".history-container");
 
     const entry = document.createElement("div");
@@ -26,6 +36,10 @@ atl.addEventListener("submit", (e) => {
     entry.appendChild(entry_location);
     entry.appendChild(entry_amount);
     entry.appendChild(entry_date);
+
+    //updates the balance
+    balance -= fd.get("amount");
+    balance_text.textContent = "$" + balance;
 
     document.getElementById("atl").reset();
 });
