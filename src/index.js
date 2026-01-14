@@ -2,7 +2,7 @@ import "./style.css";
 /*
 * Sets the starting value for the balance
 */
-let balance = 100;
+let balance = 0;
 const balance_text = document.querySelector(".balance-text");
 balance_text.textContent = "$" + balance;
 
@@ -27,7 +27,7 @@ atl.addEventListener("submit", (e) => {
 
     const entry_amount = document.createElement("div");
     entry_amount.classList.add("entry-amount");
-    entry_amount.textContent = "$" + fd.get("amount");
+    entry_amount.textContent = "-$" + fd.get("amount");
 
     const entry_date = document.createElement("div");
     entry_date.classList.add("entry-date");
@@ -41,43 +41,35 @@ atl.addEventListener("submit", (e) => {
 
     //updates the balance
     balance -= fd.get("amount");
-    balance_text.textContent = "-$" + balance;
+    balance_text.textContent = "$" + balance;
 
     document.getElementById("atl").reset();
 });
 
 /*
-* Opens the add income popup form
+* Handles form to add income and update the balance
 */
-const incomeBtn = document.getElementById("income-btn");
-incomeBtn.onclick = () => {
-    const overlayContainer = document.getElementById("overlay-container");
-    overlayContainer.classList.toggle('show');
-};
-
-/*
-* OnSubmit for the add income form
-*/
-const addIncome = document.getElementById('#add-income');
+const addIncome = document.querySelector("#add-income");
 addIncome.addEventListener("submit", (e) => {
-
+    e.preventDefault();
     const incomeFD = new FormData(addIncome);
 
     const history_container = document.querySelector(".history-container");
+
     const entry = document.createElement("div");
     entry.classList.add("entry-container");
-    
+
     const entry_location = document.createElement("div");
     entry_location.classList.add("entry-location");
-    entry_location.textContent = fd.get("location");
+    entry_location.textContent = incomeFD.get("source");
 
     const entry_amount = document.createElement("div");
     entry_amount.classList.add("entry-amount");
-    entry_amount.textContent = "$" + fd.get("amount");
+    entry_amount.textContent = "+$" + incomeFD.get("amount");
 
     const entry_date = document.createElement("div");
     entry_date.classList.add("entry-date");
-    entry_date.textContent = fd.get("date");
+    entry_date.textContent = incomeFD.get("date");
 
     history_container.prepend(entry);
 
@@ -85,8 +77,8 @@ addIncome.addEventListener("submit", (e) => {
     entry.appendChild(entry_amount);
     entry.appendChild(entry_date);
 
-    //updates the balance
-    balance += fd.get("amount");
+    //updates the balance, had to do double negative because of string concatenation issues
+    balance -= -incomeFD.get("amount");
     balance_text.textContent = "$" + balance;
 
     document.getElementById("add-income").reset();

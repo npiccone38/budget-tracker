@@ -49,26 +49,15 @@
     </div>
 
     <!-- Add to balance popup form -->
-    <div id="overlay-container" class="overlay-container">
-        <div class="popup-container">
-            <form id="add-income">
-                <div class="amount-date-container">
-                    <div class="amount-container">
-                        <label for="amount" class="inline-label">Amount:</label>
-                        <input type="number" id="amount" name="amount">
-                    </div>
-                    <div class="date-container">
-                        <label for="date" class="inline-label">Date:</label>
-                        <input type="date" id="date" name="date">
-                    </div>
-                </div>
-                
-                <label for="location">Source:</label>
-                <input type="text" id="location" name="location" >
-                <input type="submit" value="This shouldn't reset">
-            </form>
-        </div>
-    </div>
+    <form id="add-income">
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount">
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+        <label for="source">Source:</label>
+        <input type="text" id="source" name="source">
+        <input type="submit" value="Add Income">
+    </form>
     
 </body>
 </html>
